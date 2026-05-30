@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TERMINAL_NG_KATAS_NG_LIPUNAN_V1.04</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <audio id="bgMusic" src="sounds/bgm.mp3" loop></audio>
+    <div class="start-screen" id="startScreen">
+        <div class="start-box">
+            <div class="start-title">NEOLIBERALISMO VENDING MACHINE</div>
+            <div class="start-warning">
+                [BABALA MULA SA MALAYANG MERKADO]<br>
+                ANG TERMINAL NA ITO AY GAGAMIT NG IYONG ORAS, LABOR, AT MATERYAL NA BUHAY BILANG PUHUNAN. BAWAL ANG REBOLUSYON O REKLAMO SA LOOB NG PROSESO.
+            </div>
+            <button class="boot-btn" id="bootBtn">I-BOOT ANG SYSTEM</button>
+        </div>
+    </div>
+    <div class="vending-container">
+        
+        <div class="display-window" id="windowGrid">
+            </div>
+
+        <div class="control-panel">
+            <div class="crt-screen" id="screenTerminal">
+                [SYS_OK]<br>
+                PUMILI NG KARAPATANG NAIS MONG BILHIN UPANG MASIMULAN ANG PAGLIQUIDATE NG BUHAY MO...<br>
+                <span class="blink">_</span>
+            </div>
+
+            <div class="coin-mech-container">
+                <div class="coin-slot" id="coinSlot">
+                    <div class="slot-hole" id="slotHole"></div>
+                    <div class="coin-insertion-path" id="coinPath"></div>
+                </div>
+                <div class="coin-label">Hulugan ng Oras/Buhay</div>
+            </div>
+
+            <div class="wallet-area">
+                <div class="coin-wrapper" id="coinWrapper">
+                    <div class="life-coin" id="lifeToken" draggable="true">★</div>
+                </div>
+                <div class="coin-label" style="color: var(--neon-amber)">Iyong Lifespan (Barya)</div>
+            </div>
+        </div>
+
+        <div class="dispenser-row" id="chute">
+            <div class="dispenser-flap" id="flapText">DITO LALABAS ANG BINILING KARAPATAN</div>
+        </div>
+    </div>
+
+    <div class="overlay" id="modalOverlay">
+        <div class="receipt-modal">
+            <div class="receipt-header">
+                <h2>★ REPUBLIKA NG MALAYANG MERKADO ★</h2>
+                <p>OPISYAL NA RESIBO NG PAGSASAMANTALA</p>
+                <p id="receiptDate"></p>
+            </div>
+            <div class="receipt-body" id="receiptContent">
+                </div>
+            <button class="close-btn" id="closeBtn">TANGGAPIN ANG KATOTOHANAN</button>
+        </div>
+    </div>
+
+    <script src="animations.js"></script>
+    
+    <script src="script.js"></script>
+</body>
+</html>
