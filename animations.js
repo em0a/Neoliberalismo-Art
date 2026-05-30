@@ -1,28 +1,23 @@
-
 const SOUNDS = {
-    click: new Audio('sounds/click.mp3'),
-    coinInsert: new Audio('sounds/insert.mp3'),
-    shake: new Audio('sounds/thud.mp3'),
-    dispense: new Audio('sounds/drop.mp3'),
-    error: new Audio('sounds/error.mp3')
+    click: new Audio('sounds/click.mp3'),       
+    coinInsert: new Audio('sounds/insert.mp3'), 
+    shake: new Audio('sounds/thud.mp3'),        
+    dispense: new Audio('sounds/drop.mp3'),     
+    error: new Audio('sounds/error.mp3')        
 };
 
 function playSound(soundKey) {
     if (SOUNDS[soundKey]) {
-        SOUNDS[soundKey].currentTime = 0;
-        SOUNDS[soundKey].play().catch(err => {
-            console.log(`Audio waiting for system user activation: ${soundKey}`);
-        });
+        SOUNDS[soundKey].currentTime = 0; 
+        SOUNDS[soundKey].play().catch(err => {});
     }
 }
 
 function startBackgroundMusic() {
     const bgm = document.getElementById('bgMusic');
     if (bgm) {
-        bgm.volume = 0.25;
-        bgm.play().catch(err => {
-            console.log("BGM waiting for boot interaction trigger.");
-        });
+        bgm.volume = 0.25; 
+        bgm.play().catch(err => {});
     }
 }
 
@@ -32,8 +27,8 @@ function shakeMachine() {
 
     playSound('shake');
 
-    let intensity = 12;
-    let duration = 600;
+    let intensity = 12;   
+    let duration = 600;    
     let startTime = Date.now();
     const originalBoxShadow = machine.style.boxShadow;
 
@@ -43,7 +38,6 @@ function shakeMachine() {
             let x = (Math.random() - 0.5) * intensity;
             let y = (Math.random() - 0.5) * intensity;
             machine.style.transform = `translate(${x}px, ${y}px) scale(1.01)`;
-            
             machine.style.boxShadow = `0px 0px 30px rgba(255, 51, 51, 0.8), 8px 8px 0px #ff3333`;
             requestAnimationFrame(executeShake);
         } else {
@@ -89,9 +83,10 @@ function glitchTextEffect(targetElement, finalHTML, duration = 400) {
         let elapsed = Date.now() - startTime;
         if (elapsed < duration) {
             let randomStr = "";
-            let length = finalHTML.replace(/<[^>]*>/g, '').length;
+            let length = 40; 
             for(let i = 0; i < length; i++) {
                 randomStr += chars[Math.floor(Math.random() * chars.length)];
+                if (i > 0 && i % 8 === 0) randomStr += " ";
             }
             targetElement.innerHTML = `<span style="color: var(--neon-red)">${randomStr}</span>`;
             requestAnimationFrame(updateText);
