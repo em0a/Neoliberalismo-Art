@@ -24,7 +24,7 @@ const itemsData = [
         cost: "2 Oras na Bawas-Buhay", 
         realCost: "Public-Private Partnerships (PPP)", 
         desc: "Trinatong negosyo ang public transport imbes na serbisyo sa pamamagitan ng Build-Operate-Transfer Law (RA 7718). Binabayaran mo ang bawat sakay gamit ang oras na ninanakaw sa buhay mo habang nakapila sa siksikang MRT at LRT.",
-        refLink: "https://ppp.gov.ph/ppp-legal-framework/amended-bot-law-and-its-irr/"
+        refLink: "https://ppp.gov.ph/wp-content/uploads/2015/01/BOT-IRR-2012_FINAL.pdf"
     },
     { 
         id: "B1", 
@@ -33,7 +33,7 @@ const itemsData = [
         cost: "Boses at Karapatan", 
         realCost: "Flexible Labor (Endo Loophole)", 
         desc: "Pinapanatili kang kontraktwal ng mga legal na butas tulad ng DOLE Department Order No. 174 para makaiwas ang kumpanya sa pagbibigay ng 13th month pay, SSS, at HMO. Gagamitin ka lang ng limang buwan, tapos itatapon para palitan ng bago.",
-        refLink: "https://www.dole.gov.ph/news/department-order-no-174-series-of-2017/"
+        refLink: "https://www.dole9portal.com/qms/references/QP-OO2-11/DO%20174-17.pdf"
     },
     { 
         id: "B2", 
@@ -78,7 +78,7 @@ const itemsData = [
         cost: "Budget Cuts sa SUCs", 
         realCost: "Fiscal Austerity Mandate", 
         desc: "Sinasadyang bawasan ang pondo ng mga pampublikong unibersidad tulad ng PUP sa ilalim ng taunang General Appropriations Act (GAA) upang mapilitan silang mag-commercialize ng mga pasilidad at unti-unting gawing negosyo ang edukasyon.",
-        refLink: "https://www.dbm.gov.ph/index.php/budget-documents/2026/general-appropriations-act-gaa-fy-2026"
+        refLink: "https://www.dbm.gov.ph/wp-content/uploads/GAA/GAA2026/VolumeIA/SUCS/B5.pdf"
     }
 ];
 
