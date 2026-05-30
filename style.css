@@ -25,7 +25,7 @@ body {
     background-size: 20px 20px;
     color: #fff;
     margin: 0;
-    padding: 60px 20px 20px 20px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -37,7 +37,7 @@ body {
 h1 {
     color: var(--neon-red);
     text-shadow: 3px 3px 0px #550000;
-    font-size: 3rem;
+    font-size: calc(1.8rem + 1.5vw);
     margin: 0 0 5px 0;
     text-align: center;
     letter-spacing: 2px;
@@ -45,39 +45,39 @@ h1 {
 
 .subtitle {
     color: #888;
-    font-size: 1.4rem;
-    margin-bottom: 25px;
+    font-size: calc(1rem + 0.5vw);
+    margin-bottom: 20px;
     text-align: center;
     text-transform: uppercase;
 }
 
 .vending-container {
-    width: 850px;
+    width: 100%;
+    max-width: 950px;
     background: var(--machine-case);
-    border: 8px solid #000;
+    border: 6px solid #000;
     box-shadow: 
-        8px 8px 0px #000,
+        6px 6px 0px #000,
         inset 4px 4px 0px #3a3a52,
         inset -4px -4px 0px #11111a;
-    padding: 20px;
+    padding: 15px;
     display: grid;
     grid-template-columns: 1fr 280px;
-    gap: 20px;
+    gap: 15px;
     position: relative;
     will-change: transform;
 }
 
 .display-window {
     background: #05050a;
-    border: 6px solid #000;
+    border: 5px solid #000;
     box-shadow: inset 4px 4px 0px #000;
-    padding: 15px;
+    padding: 12px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
+    gap: 12px;
     position: relative;
     overflow: hidden;
-    min-height: 400px;
 }
 
 .display-window::before, .crt-screen::before {
@@ -104,6 +104,7 @@ h1 {
     cursor: pointer;
     transition: all 0.1s ease;
     position: relative;
+    min-height: 120px;
 }
 
 .item-slot:hover {
@@ -119,14 +120,14 @@ h1 {
 
 .item-code {
     color: var(--neon-amber);
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     align-self: flex-start;
     font-weight: bold;
 }
 
 .item-icon {
-    font-size: 2.2rem;
-    margin: 5px 0;
+    font-size: calc(1.5rem + 1vw);
+    margin: 2px 0;
     filter: drop-shadow(0px 2px 0px #000);
 }
 
@@ -134,7 +135,6 @@ h1 {
     font-size: 1.1rem;
     color: #fff;
     line-height: 1.1;
-    height: 35px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -142,18 +142,19 @@ h1 {
 
 .item-cost {
     color: var(--neon-red);
-    font-size: 1rem;
-    margin-top: 5px;
+    font-size: 0.95rem;
+    margin-top: 3px;
     text-transform: uppercase;
 }
 
 .control-panel {
     background: var(--machine-trim);
-    border: 6px solid #000;
-    padding: 15px;
+    border: 5px solid #000;
+    padding: 12px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    gap: 15px;
 }
 
 .crt-screen {
@@ -162,11 +163,18 @@ h1 {
     padding: 10px;
     color: var(--neon-green);
     font-size: 1.1rem;
-    height: 160px;
-    overflow-y: hidden;
+    height: 150px;
     position: relative;
     box-shadow: inset 0 0 10px #000;
     line-height: 1.2;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    white-space: normal;
+    word-break: break-all;
+}
+
+.crt-screen::-webkit-scrollbar {
+    display: none;
 }
 
 .blink {
@@ -178,7 +186,6 @@ h1 {
 }
 
 .coin-mech-container {
-    margin: 15px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -186,36 +193,30 @@ h1 {
 }
 
 .coin-slot {
-    width: 80px;
-    height: 100px;
+    width: 70px;
+    height: 85px;
     background: #222;
-    border: 6px solid #000;
+    border: 5px solid #000;
     box-shadow: inset 4px 4px 0px #111;
     position: relative;
     cursor: pointer;
 }
 
 .slot-hole {
-    width: 14px;
-    height: 55px;
+    width: 12px;
+    height: 45px;
     background: #050505;
     border: 2px solid #444;
     position: absolute;
     top: 15px;
-    left: 27px;
+    left: 24px;
     z-index: 2;
 }
 
-.slot-hole.glow {
-    background: #331100;
-    border-color: var(--neon-amber);
-    box-shadow: 0 0 8px var(--neon-amber);
-}
-
 .coin-label {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: #888;
-    margin-top: 5px;
+    margin-top: 4px;
     text-transform: uppercase;
     text-align: center;
 }
@@ -224,19 +225,18 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 5px;
-    height: 80px;
+    height: 70px;
 }
 
 .coin-wrapper {
-    width: 50px;
-    height: 50px;
+    width: 44px;
+    height: 44px;
     position: relative;
 }
 
 .life-coin {
-    width: 50px;
-    height: 50px;
+    width: 44px;
+    height: 44px;
     background: var(--neon-amber);
     border: 4px solid #000;
     border-radius: 50%;
@@ -246,14 +246,13 @@ h1 {
     justify-content: center;
     color: #000;
     font-weight: bold;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     cursor: grab;
     z-index: 5;
     position: absolute;
     top: 0;
     left: 0;
 }
-
 
 .dispenser-row {
     grid-column: 1 / span 2;
@@ -287,7 +286,7 @@ h1 {
 .dispensed-receipt {
     background: #fff;
     color: #000;
-    padding: 8px 15px;
+    padding: 6px 12px;
     font-family: monospace;
     font-size: 0.9rem;
     font-weight: bold;
@@ -313,30 +312,30 @@ h1 {
     z-index: 100;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: 15px;
 }
 
 .receipt-modal {
     background: #fcfbe3;
     color: #111;
     width: 100%;
-    max-width: 450px;
-    border: 6px solid #000;
-    padding: 20px;
-    box-shadow: 8px 8px 0px var(--neon-red);
+    max-width: 420px;
+    border: 5px solid #000;
+    padding: 15px;
+    box-shadow: 6px 6px 0px var(--neon-red);
     font-family: monospace;
 }
 
 .receipt-header {
     text-align: center;
     border-bottom: 2px dashed #000;
-    padding-bottom: 10px;
-    margin-bottom: 15px;
+    padding-bottom: 8px;
+    margin-bottom: 12px;
 }
 
 .receipt-body {
     line-height: 1.3;
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 .ref-document-btn {
@@ -366,9 +365,9 @@ h1 {
     color: #fff;
     border: none;
     padding: 8px 15px;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     width: 100%;
-    margin-top: 15px;
+    margin-top: 12px;
     cursor: pointer;
     box-shadow: 3px 3px 0px #555;
 }
@@ -377,6 +376,7 @@ h1 {
     background: var(--neon-red);
     box-shadow: 3px 3px 0px #220000;
 }
+
 .start-screen {
     position: fixed;
     top: 0; left: 0;
@@ -390,34 +390,35 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: 15px;
     transition: opacity 0.5s ease;
 }
 
 .start-box {
     background: #11111d;
-    border: 6px solid #000;
-    box-shadow: 10px 10px 0px #ff3333;
-    padding: 30px;
-    max-width: 500px;
+    border: 5px solid #000;
+    box-shadow: 8px 8px 0px #ff3333;
+    padding: 20px;
+    width: 100%;
+    max-width: 450px;
     text-align: center;
 }
 
 .start-title {
-    font-size: 3.5rem;
+    font-size: calc(2.2rem + 1vw);
     color: var(--neon-red);
     text-shadow: 3px 3px 0px #000;
-    margin-bottom: 20px;
-    letter-spacing: 3px;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
 }
 
 .start-warning {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: #888;
-    line-height: 1.4;
+    line-height: 1.3;
     border: 2px dashed #333;
-    padding: 15px;
-    margin-bottom: 30px;
+    padding: 12px;
+    margin-bottom: 20px;
     text-align: justify;
 }
 
@@ -425,8 +426,8 @@ h1 {
     background: #000;
     color: var(--neon-green);
     border: 4px solid var(--neon-green);
-    padding: 10px 30px;
-    font-size: 1.8rem;
+    padding: 8px 25px;
+    font-size: 1.5rem;
     cursor: pointer;
     text-transform: uppercase;
     box-shadow: 4px 4px 0px #000;
@@ -440,14 +441,8 @@ h1 {
 }
 
 @keyframes slotSpark {
-    0% {
-        background: #ff3333;
-        box-shadow: 0 0 5px #ff3333, inset 0 0 5px #000;
-    }
-    100% {
-        background: #ffb700;
-        box-shadow: 0 0 20px #ffb700, inset 0 0 2px #fff;
-    }
+    0% { background: #ff3333; box-shadow: 0 0 5px #ff3333, inset 0 0 5px #000; }
+    100% { background: #ffb700; box-shadow: 0 0 20px #ffb700, inset 0 0 2px #fff; }
 }
 
 .item-slot:hover .item-code {
@@ -466,4 +461,81 @@ h1 {
 @keyframes coinPulse {
     0%, 100% { box-shadow: inset 3px 3px 0px #fff, 3px 3px 0px #000; }
     50% { box-shadow: inset 3px 3px 0px #fff, 0 0 15px var(--neon-amber), 3px 3px 0px #000; }
+}
+
+@media (max-width: 850px) {
+    .vending-container {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+    }
+    
+    .control-panel {
+        flex-direction: row;
+        align-items: stretch;
+        gap: 10px;
+    }
+    
+    .crt-screen {
+        flex: 1;
+        height: 140px;
+        min-height: 140px;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        word-break: break-all;
+    }
+    
+    .dispenser-row {
+        grid-column: 1;
+    }
+}
+
+@media (max-width: 500px) {
+    body {
+        padding: 10px;
+    }
+    
+    .vending-container {
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .display-window {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        padding: 8px;
+    }
+
+    .item-slot {
+        min-height: 110px;
+        padding: 5px;
+    }
+
+    .item-name {
+        font-size: 0.95rem;
+    }
+
+    .item-cost {
+        font-size: 0.85rem;
+    }
+
+    .control-panel {
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+    }
+
+    .crt-screen {
+        width: 100%;
+        height: 130px; 
+        min-height: 130px;
+        max-height: 130px;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        word-break: break-all;
+    }
+
+    .coin-mech-container, .wallet-area {
+        display: inline-flex;
+        margin: 5px;
+    }
 }
