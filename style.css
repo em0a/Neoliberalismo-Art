@@ -25,35 +25,38 @@ body {
     background-size: 20px 20px;
     color: #fff;
     margin: 0;
-    padding: 20px;
+    padding: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: 100vh;
     min-height: 100vh;
-    overflow-x: hidden;
+    max-height: 100vh;
+    overflow: hidden;
 }
 
 h1 {
     color: var(--neon-red);
-    text-shadow: 3px 3px 0px #550000;
-    font-size: calc(1.8rem + 1.5vw);
-    margin: 0 0 5px 0;
+    text-shadow: 2px 2px 0px #550000;
+    font-size: calc(1.5rem + 1vw);
+    margin: 0;
     text-align: center;
     letter-spacing: 2px;
 }
 
 .subtitle {
     color: #888;
-    font-size: calc(1rem + 0.5vw);
-    margin-bottom: 20px;
+    font-size: calc(0.9rem + 0.3vw);
+    margin: 0 0 10px 0;
     text-align: center;
     text-transform: uppercase;
 }
 
 .vending-container {
     width: 100%;
-    max-width: 950px;
+    max-width: 1100px;
+    height: calc(100vh - 80px);
     background: var(--machine-case);
     border: 6px solid #000;
     box-shadow: 
@@ -62,20 +65,22 @@ h1 {
         inset -4px -4px 0px #11111a;
     padding: 15px;
     display: grid;
-    grid-template-columns: 1fr 280px;
+    grid-template-columns: 1fr 320px;
+    grid-template-rows: 1fr 90px;
     gap: 15px;
     position: relative;
-    will-change: transform;
+    overflow: hidden;
 }
 
 .display-window {
     background: #05050a;
     border: 5px solid #000;
     box-shadow: inset 4px 4px 0px #000;
-    padding: 12px;
+    padding: 10px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
     position: relative;
     overflow: hidden;
 }
@@ -86,7 +91,7 @@ h1 {
     position: absolute;
     top: 0; left: 0; bottom: 0; right: 0;
     background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
-                linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+                linear-gradient(90deg, rgba(255, 0, 0, 0.04), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.04));
     z-index: 10;
     background-size: 100% 4px, 6px 100%;
     pointer-events: none;
@@ -104,7 +109,7 @@ h1 {
     cursor: pointer;
     transition: all 0.1s ease;
     position: relative;
-    min-height: 120px;
+    overflow: hidden;
 }
 
 .item-slot:hover {
@@ -115,36 +120,36 @@ h1 {
 .item-slot.selected {
     border-color: var(--neon-green);
     background: #0d2417;
-    box-shadow: 0 0 10px rgba(0, 255, 102, 0.3);
+    box-shadow: 0 0 10px rgba(0, 255, 102, 0.4);
 }
 
 .item-code {
     color: var(--neon-amber);
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     align-self: flex-start;
     font-weight: bold;
+    line-height: 1;
 }
 
 .item-icon {
-    font-size: calc(1.5rem + 1vw);
-    margin: 2px 0;
+    font-size: calc(1.8rem + 1vw);
+    margin: 0;
+    line-height: 1;
     filter: drop-shadow(0px 2px 0px #000);
 }
 
 .item-name {
-    font-size: 1.1rem;
+    font-size: 1.4rem;
     color: #fff;
     line-height: 1.1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    font-weight: bold;
 }
 
 .item-cost {
     color: var(--neon-red);
-    font-size: 0.95rem;
-    margin-top: 3px;
+    font-size: 1.1rem;
     text-transform: uppercase;
+    font-weight: bold;
 }
 
 .control-panel {
@@ -154,27 +159,24 @@ h1 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 15px;
+    gap: 10px;
+    overflow: hidden;
 }
 
 .crt-screen {
     background: #001100;
     border: 4px solid #000;
-    padding: 10px;
+    padding: 12px;
     color: var(--neon-green);
-    font-size: 1.1rem;
-    height: 150px;
+    font-size: 1.4rem;
+    flex: 1;
     position: relative;
     box-shadow: inset 0 0 10px #000;
-    line-height: 1.2;
-    overflow-x: hidden;
-    overflow-y: hidden;
+    line-height: 1.3;
+    overflow: hidden;
     white-space: normal;
     word-break: break-all;
-}
-
-.crt-screen::-webkit-scrollbar {
-    display: none;
+    font-weight: bold;
 }
 
 .blink {
@@ -189,54 +191,56 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
+    justify-content: center;
 }
 
 .coin-slot {
-    width: 70px;
-    height: 85px;
+    width: 75px;
+    height: 90px;
     background: #222;
-    border: 5px solid #000;
-    box-shadow: inset 4px 4px 0px #111;
+    border: 4px solid #000;
+    box-shadow: inset 3px 3px 0px #111;
     position: relative;
     cursor: pointer;
 }
 
 .slot-hole {
-    width: 12px;
-    height: 45px;
+    width: 14px;
+    height: 50px;
     background: #050505;
     border: 2px solid #444;
     position: absolute;
-    top: 15px;
-    left: 24px;
+    top: 16px;
+    left: 26px;
     z-index: 2;
 }
 
 .coin-label {
-    font-size: 0.85rem;
-    color: #888;
+    font-size: 1.1rem;
+    color: #aaa;
     margin-top: 4px;
     text-transform: uppercase;
     text-align: center;
+    font-weight: bold;
 }
 
 .wallet-area {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 70px;
+    justify-content: center;
+    height: 75px;
 }
 
 .coin-wrapper {
-    width: 44px;
-    height: 44px;
+    width: 50px;
+    height: 50px;
     position: relative;
 }
 
 .life-coin {
-    width: 44px;
-    height: 44px;
+    width: 50px;
+    height: 50px;
     background: var(--neon-amber);
     border: 4px solid #000;
     border-radius: 50%;
@@ -246,8 +250,8 @@ h1 {
     justify-content: center;
     color: #000;
     font-weight: bold;
-    font-size: 1.3rem;
-    cursor: grab;
+    font-size: 1.7rem;
+    cursor: pointer;
     z-index: 5;
     position: absolute;
     top: 0;
@@ -256,72 +260,74 @@ h1 {
 
 .dispenser-row {
     grid-column: 1 / span 2;
-    height: 80px;
+    height: 100%;
     background: #0a0a0f;
-    border: 6px solid #000;
+    border: 5px solid #000;
     box-shadow: inset 4px 4px 0px #000;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
+    overflow: hidden;
 }
 
 .dispenser-flap {
-    width: 60%;
-    height: 85%;
+    width: 50%;
+    height: 80%;
     background: #1c1c24;
     border: 4px solid #000;
     box-shadow: inset 2px 2px 0px #333;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #444;
+    color: #333;
     font-size: 1.5rem;
     position: absolute;
     z-index: 1;
     pointer-events: none;
     transition: opacity 0.2s ease;
+    font-weight: bold;
 }
 
 .dispensed-receipt {
     background: #fff;
     color: #000;
-    padding: 6px 12px;
+    padding: 8px 20px;
     font-family: monospace;
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     font-weight: bold;
     border: 2px dashed #000;
     box-shadow: 4px 4px 0px var(--neon-red);
     cursor: pointer;
-    animation: dropItem 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    animation: dropItem 0.2s ease-out forwards;
     z-index: 20;
-    max-width: 90%;
+    max-width: 95%;
     text-align: center;
 }
 
 @keyframes dropItem {
-    0% { transform: translateY(-35px) scaleY(0); opacity: 0; }
-    100% { transform: translateY(0) scaleY(1); opacity: 1; }
+    0% { transform: translateY(-20px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
 }
 
 .overlay {
     display: none;
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.85);
+    background: rgba(0,0,0,0.9);
     z-index: 100;
     align-items: center;
     justify-content: center;
-    padding: 15px;
+    padding: 10px;
 }
 
 .receipt-modal {
     background: #fcfbe3;
     color: #111;
     width: 100%;
-    max-width: 420px;
+    max-width: 480px;
     border: 5px solid #000;
-    padding: 15px;
+    padding: 20px;
     box-shadow: 6px 6px 0px var(--neon-red);
     font-family: monospace;
 }
@@ -329,20 +335,25 @@ h1 {
 .receipt-header {
     text-align: center;
     border-bottom: 2px dashed #000;
-    padding-bottom: 8px;
-    margin-bottom: 12px;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.receipt-header h2 {
+    font-size: 1.5rem;
+    margin: 0;
 }
 
 .receipt-body {
     line-height: 1.3;
-    font-size: 1rem;
+    font-size: 1.2rem;
 }
 
 .ref-document-btn {
     background: #ff3333 !important;
     color: #fff !important;
     border: 3px solid #000 !important;
-    padding: 8px 10px;
+    padding: 10px;
     width: 100%;
     cursor: pointer;
     font-weight: bold;
@@ -350,31 +361,21 @@ h1 {
     margin-top: 10px;
     box-shadow: 3px 3px 0px #000;
     text-transform: uppercase;
-    transition: transform 0.05s, box-shadow 0.05s;
     display: block;
     text-align: center;
-}
-
-.ref-document-btn:active {
-    transform: translate(2px, 2px);
-    box-shadow: 1px 1px 0px #000;
+    font-size: 1.2rem;
 }
 
 .close-btn {
     background: #000;
     color: #fff;
     border: none;
-    padding: 8px 15px;
-    font-size: 1.1rem;
+    padding: 10px;
+    font-size: 1.3rem;
     width: 100%;
-    margin-top: 12px;
+    margin-top: 10px;
     cursor: pointer;
     box-shadow: 3px 3px 0px #555;
-}
-
-.close-btn:hover {
-    background: var(--neon-red);
-    box-shadow: 3px 3px 0px #220000;
 }
 
 .start-screen {
@@ -382,30 +383,26 @@ h1 {
     top: 0; left: 0;
     width: 100%; height: 100%;
     background-color: #05050a;
-    background-image: 
-        linear-gradient(rgba(255, 51, 51, 0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 51, 51, 0.02) 1px, transparent 1px);
-    background-size: 30px 30px;
     z-index: 200;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 15px;
-    transition: opacity 0.5s ease;
+    transition: opacity 0.3s ease;
 }
 
 .start-box {
     background: #11111d;
     border: 5px solid #000;
     box-shadow: 8px 8px 0px #ff3333;
-    padding: 20px;
+    padding: 25px;
     width: 100%;
-    max-width: 450px;
+    max-width: 500px;
     text-align: center;
 }
 
 .start-title {
-    font-size: calc(2.2rem + 1vw);
+    font-size: 3rem;
     color: var(--neon-red);
     text-shadow: 3px 3px 0px #000;
     margin-bottom: 15px;
@@ -413,12 +410,12 @@ h1 {
 }
 
 .start-warning {
-    font-size: 1.1rem;
-    color: #888;
+    font-size: 1.3rem;
+    color: #aaa;
     line-height: 1.3;
     border: 2px dashed #333;
-    padding: 12px;
-    margin-bottom: 20px;
+    padding: 15px;
+    margin-bottom: 25px;
     text-align: justify;
 }
 
@@ -426,18 +423,11 @@ h1 {
     background: #000;
     color: var(--neon-green);
     border: 4px solid var(--neon-green);
-    padding: 8px 25px;
-    font-size: 1.5rem;
+    padding: 10px 30px;
+    font-size: 1.8rem;
     cursor: pointer;
     text-transform: uppercase;
     box-shadow: 4px 4px 0px #000;
-    transition: all 0.1s ease;
-}
-
-.boot-btn:hover {
-    background: var(--neon-green);
-    color: #000;
-    box-shadow: 0px 0px 15px var(--neon-green);
 }
 
 @keyframes slotSpark {
@@ -464,50 +454,41 @@ h1 {
 }
 
 @media (max-width: 850px) {
+    body {
+        padding: 5px;
+        height: 100vh;
+        height: 100svh;
+    }
+
+    h1, .subtitle {
+        display: none !important;
+    }
+
     .vending-container {
         grid-template-columns: 1fr;
-        max-width: 600px;
-    }
-    
-    .control-panel {
-        flex-direction: row;
-        align-items: stretch;
-        gap: 10px;
-    }
-    
-    .crt-screen {
-        flex: 1;
-        height: 140px;
-        min-height: 140px;
-        overflow-x: hidden;
-        overflow-y: hidden;
-        word-break: break-all;
-    }
-    
-    .dispenser-row {
-        grid-column: 1;
-    }
-}
-
-@media (max-width: 500px) {
-    body {
-        padding: 10px;
-    }
-    
-    .vending-container {
-        padding: 10px;
-        gap: 10px;
-    }
-
-    .display-window {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 8px;
+        grid-template-rows: 1fr 110px 55px;
+        gap: 6px;
         padding: 8px;
+        height: 100svh;
+    }
+    
+    .display-window {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 5px;
+        padding: 5px;
     }
 
     .item-slot {
-        min-height: 110px;
-        padding: 5px;
+        padding: 4px;
+    }
+
+    .item-code {
+        font-size: 1.1rem;
+    }
+
+    .item-icon {
+        font-size: 1.6rem;
     }
 
     .item-name {
@@ -515,27 +496,188 @@ h1 {
     }
 
     .item-cost {
-        font-size: 0.85rem;
+        font-size: 0.8rem;
+    }
+    
+    .control-panel {
+        flex-direction: row;
+        align-items: center;
+        padding: 6px;
+        gap: 6px;
+    }
+    
+    .crt-screen {
+        font-size: 1.1rem;
+        padding: 6px;
+        height: 100%;
+    }
+
+    .coin-mech-container {
+        width: 60px;
+    }
+
+    .coin-slot {
+        width: 50px;
+        height: 60px;
+    }
+
+    .slot-hole {
+        width: 10px;
+        height: 32px;
+        top: 10px;
+        left: 17px;
+    }
+
+    .coin-label {
+        font-size: 0.75rem;
+        margin-top: 2px;
+    }
+
+    .wallet-area {
+        width: 60px;
+        height: auto;
+    }
+
+    .coin-wrapper {
+        width: 36px;
+        height: 36px;
+    }
+
+    .life-coin {
+        width: 36px;
+        height: 36px;
+        font-size: 1.2rem;
+    }
+    
+    .dispenser-row {
+        grid-column: 1;
+    }
+
+    .dispenser-flap {
+        font-size: 1.1rem;
+        width: 90%;
+    }
+
+    .dispensed-receipt {
+        font-size: 0.95rem;
+        padding: 4px 10px;
+    }
+}
+
+@media (max-width: 500px) {
+    body {
+        padding: 10px;
+        height: 100vh;
+        height: 100svh;
+    }
+
+    h1, .subtitle {
+        display: none !important;
+    }
+    
+    .vending-container {
+        padding: 6px;
+        gap: 4px;
+        width: 96%;
+        height: 84svh;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 22% 14%;
+        box-shadow: 4px 4px 0px #000;
+    }
+
+    .display-window {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 3px;
+        padding: 3px;
+    }
+
+    .item-slot {
+        padding: 2px;
+        border-width: 2px;
+    }
+
+    .item-code {
+        font-size: 0.9rem;
+    }
+
+    .item-icon {
+        font-size: 1.1rem;
+    }
+
+    .item-name {
+        font-size: 0.8rem;
+    }
+
+    .item-cost {
+        font-size: 0.7rem;
+        margin: 0;
     }
 
     .control-panel {
-        flex-direction: column;
-        width: 100%;
-        gap: 12px;
+        flex-direction: row;
+        padding: 4px;
+        gap: 4px;
     }
 
     .crt-screen {
-        width: 100%;
-        height: 130px; 
-        min-height: 130px;
-        max-height: 130px;
-        overflow-x: hidden;
-        overflow-y: hidden;
-        word-break: break-all;
+        font-size: 0.9rem;
+        padding: 4px;
+        height: 100%;
+        line-height: 1.1;
     }
 
-    .coin-mech-container, .wallet-area {
-        display: inline-flex;
-        margin: 5px;
+    .coin-mech-container {
+        width: 45px;
+    }
+
+    .coin-slot {
+        width: 38px;
+        height: 46px;
+        border-width: 2px;
+    }
+
+    .slot-hole {
+        width: 5px;
+        height: 22px;
+        top: 10px;
+        left: 14px;
+    }
+
+    .coin-label {
+        font-size: 0.65rem;
+    }
+
+    .wallet-area {
+        width: 45px;
+    }
+
+    .coin-wrapper {
+        width: 26px;
+        height: 26px;
+    }
+
+    .life-coin {
+        width: 26px;
+        height: 26px;
+        font-size: 0.95rem;
+        border-width: 2px;
+    }
+
+    .dispenser-row {
+        grid-column: 1;
+        height: 100%;
+        border-width: 3px;
+    }
+
+    .dispenser-flap {
+        font-size: 0.9rem;
+        width: 95%;
+        height: 85%;
+    }
+
+    .dispensed-receipt {
+        font-size: 0.8rem;
+        padding: 2px 6px;
     }
 }
